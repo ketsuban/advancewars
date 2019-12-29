@@ -1,3 +1,4 @@
+    .syntax unified
     .arm
     .global __start
 __start:
@@ -47,11 +48,11 @@ __start:
 .Linit:
     mov r0, #0x12
     msr CPSR_fc, r0
-    ldr sp, =0x03007f80
+    ldr sp, =gUnknown_03007F80
 
     mov r0, #0x1f
     msr CPSR_fc, r0
-    ldr sp, =0x03007c00
+    ldr sp, =gUnknown_03007C00
 
     ldr r1, =AgbMain
     mov lr, pc
