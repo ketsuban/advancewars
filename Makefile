@@ -11,16 +11,11 @@ LD      := $(DEVKITARM)/bin/arm-none-eabi-ld
 
 OBJCOPY := $(DEVKITARM)/bin/arm-none-eabi-objcopy
 
+GBAFIX := $(DEVKITPRO)/tools/bin/gbafix
+
 LIBGCC := tools/agbcc/lib/libgcc.a
 
 MD5 := md5sum -c
-
-GFX := tools/gbagfx/gbagfx
-AIF := tools/aif2pcm/aif2pcm
-MID := tools/mid2agb/mid2agb
-SCANINC := tools/scaninc/scaninc
-PREPROC := tools/preproc/preproc
-RAMSCRGEN := tools/ramscrgen/ramscrgen
 
 # Clear the default suffixes.
 .SUFFIXES:
@@ -42,6 +37,11 @@ DATA_ASM_SRCS := $(wildcard data/*.s)
 DATA_ASM_OBJS := $(DATA_ASM_SRCS:%.s=%.o)
 
 OBJS := $(C_OBJS) $(ASM_OBJS) $(DATA_ASM_OBJS)
+
+TITLE := ADVANCEWARS
+GAME_CODE := AWRE
+MAKER_CODE := 01
+GAME_REVISION := 0
 
 all: advancewars.gba
 
@@ -79,3 +79,4 @@ advancewars.elf: linker.ld $(OBJS)
 
 advancewars.gba: advancewars.elf
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x4000000 $< $@
+	$(GBAFIX) $@ -p -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(GAME_REVISION)
