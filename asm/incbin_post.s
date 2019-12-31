@@ -1,16 +1,6 @@
     .syntax unified
     .include "asm/macros.inc"
 
-	THUMB_FUNC_START sub_807AD04
-sub_807AD04: @ 0x0807AD04
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807AD10
-	bl sub_807B030
-	pop {pc}
-	.align 2, 0
-_0807AD10: .4byte gUnknown_03006560
-
 	THUMB_FUNC_START sub_807AD14
 sub_807AD14: @ 0x0807AD14
 	push {lr}
