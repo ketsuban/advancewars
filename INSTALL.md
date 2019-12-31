@@ -17,7 +17,7 @@ The exact procedure for [installing devkitARM](https://devkitpro.org/wiki/Gettin
 1. Download `devkitpro-pacman.deb`:
 
     ```
-    curl -LO https://github.com/devkitPro/pacman/releases/downloaddevkitpro-pacman-1.0.1/devkitpro-pacman.deb
+    curl -LO https://github.com/devkitPro/pacman/releases/download/devkitpro-pacman-1.0.1/devkitpro-pacman.deb
     ```
 
 2. Install the package.
@@ -35,7 +35,7 @@ The exact procedure for [installing devkitARM](https://devkitpro.org/wiki/Gettin
 4. Add the environment variables and ensure that devkitARM is accessible from the command line. How exactly you do this depends on your shell; assuming you haven't changed anything from the default, this means adding the following lines to the end of the `.bashrc` file in your home folder.
 
     ```
-    export DEVKITPRO=/opt/devkitPro
+    export DEVKITPRO=/opt/devkitpro
     export DEVKITARM=$DEVKITPRO/devkitARM
 
     export PATH=$DEVKITPRO/tools/bin:$DEVKITARM/bin:$PATH
