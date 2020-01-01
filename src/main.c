@@ -119,3 +119,8 @@ void sub_807ADB4() {
     sub_807B27C(&intr_main, &gUnknown_03000718, 0x100);
     gUnknown_03007FFC = (uint32_t)&gUnknown_03000718;
 }
+
+void sub_807ADF0(uint32_t arg1, uint32_t arg2) {
+    uint32_t *temp = &gUnknown_03006630;
+    *(temp + arg1) = arg2;
+}
