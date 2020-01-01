@@ -631,9 +631,9 @@ SECTIONS {
 
     .text : ALIGN(4) {
         asm/crt0.o(.text);
-        asm/incbin_pre.o(.text);
+        asm/libraries.o(.text);
         src/main.o(.text);
-        asm/incbin_post.o(.text);
+        asm/main.o(.text);
     } >rom
 
     .data : ALIGN(4) {
@@ -642,9 +642,9 @@ SECTIONS {
 
     .rodata : ALIGN(4) {
         asm/crt0.o(.rodata);
-        asm/incbin_pre.o(.rodata);
+        asm/libraries.o(.rodata);
         src/main.o(.rodata);
-        asm/incbin_post.o(.rodata);
+        asm/main.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */
