@@ -1,14 +1,19 @@
 #include <stdint.h>
 
+#define DISPSTAT ((volatile uint16_t *)0x04000004)
+
 extern void gUnknown_03006560;
 extern void gUnknown_03006570;
 
 extern void sub_80386B8();
 extern void sub_807AE00(uint32_t arg1, uint32_t arg2);
 extern void sub_807AF94(void *ptr1, void *ptr2, uint32_t arg);
+extern uint32_t (*sub_807AFB8())(void *ptr1);
+extern uint32_t (*sub_807AFD4())(void *ptr1);
 extern uint32_t sub_807B008(void *ptr1, uint32_t arg1, uint32_t arg2);
 extern void sub_807B030(void *ptr1, uint32_t arg);
 extern uint32_t sub_807B0DC(void *ptr1);
+extern int32_t sub_807B0F8(void *ptr1);
 extern uint32_t sub_807B1B0(void *ptr1, uint32_t arg);
 extern uint32_t sub_807B1CC(void *ptr1, uint32_t arg1, uint32_t arg2);
 extern uint32_t sub_807B250(void *ptr1, uint32_t arg);
@@ -46,4 +51,20 @@ void sub_807AD04(uint32_t arg1) {
 
 void sub_807AD14() {
     sub_807AD04(sub_807B0DC(&gUnknown_03006560));
+}
+
+void sub_807AD28() {
+    uint32_t (*temp1)() = sub_807AFB8(&gUnknown_03006560);
+    while (temp1 != 0 && sub_807B0F8(&gUnknown_03006560) <= 0x1D) {
+        temp1();
+        temp1 = sub_807AFD4(&gUnknown_03006560);
+    }
+
+    while ((*DISPSTAT & 1) != 0);
+    while ((*DISPSTAT & 1) == 0);
+
+    while (temp1 != 0) {
+        temp1();
+        temp1 = sub_807AFD4(&gUnknown_03006560);
+    }
 }

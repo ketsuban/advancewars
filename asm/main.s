@@ -1,59 +1,6 @@
     .syntax unified
     .include "asm/macros.inc"
 
-	THUMB_FUNC_START sub_807AD28
-sub_807AD28: @ 0x0807AD28
-	push {r4, r5, lr}
-	ldr r0, _0807AD34
-	bl sub_807AFB8
-	b _0807AD42
-	.align 2, 0
-_0807AD34: .4byte gUnknown_03006560
-_0807AD38:
-	bl _call_via_r4
-	adds r0, r5, #0
-	bl sub_807AFD4
-_0807AD42:
-	adds r4, r0, #0
-	cmp r4, #0
-	beq _0807AD54
-	ldr r5, _0807AD88
-	adds r0, r5, #0
-	bl sub_807B0F8
-	cmp r0, #0x1d
-	ble _0807AD38
-_0807AD54:
-	ldr r2, _0807AD8C
-	movs r3, #1
-_0807AD58:
-	ldrh r1, [r2]
-	adds r0, r3, #0
-	ands r0, r1
-	cmp r0, #0
-	bne _0807AD58
-	ldr r2, _0807AD8C
-	movs r3, #1
-_0807AD66:
-	ldrh r1, [r2]
-	adds r0, r3, #0
-	ands r0, r1
-	cmp r0, #0
-	beq _0807AD66
-	cmp r4, #0
-	beq _0807AD84
-_0807AD74:
-	bl _call_via_r4
-	ldr r0, _0807AD88
-	bl sub_807AFD4
-	adds r4, r0, #0
-	cmp r4, #0
-	bne _0807AD74
-_0807AD84:
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807AD88: .4byte gUnknown_03006560
-_0807AD8C: .4byte 0x04000004
-
 	THUMB_FUNC_START sub_807AD90
 sub_807AD90: @ 0x0807AD90
 	ldr r2, _0807ADA0
