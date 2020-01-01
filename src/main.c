@@ -101,3 +101,7 @@ void sub_807ADA4() {
     sub_807AD28();
     sub_807AD90();
 }
+
+void sub_807ADB0() {
+    // empty
+}
