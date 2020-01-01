@@ -96,3 +96,8 @@ __attribute__((naked)) void sub_807AD90() {
     .syntax divided");
 }
 #endif /* NONMATCHING */
+
+void sub_807ADA4() {
+    sub_807AD28();
+    sub_807AD90();
+}
