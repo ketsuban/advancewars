@@ -68,3 +68,31 @@ void sub_807AD28() {
         temp1 = sub_807AFD4(&gUnknown_03006560);
     }
 }
+
+#ifdef NONMATCHING
+// `push {lr}`/`pop {pc}` wrapper in function prelude rather than `bx lr`
+// likely compiler version mismatch
+void sub_807AD90() {
+    while (1) {
+        if ((*DISPSTAT & 1) == 0) {
+            return;
+        }
+    }
+}
+#else
+__attribute__((naked)) void sub_807AD90() {
+    asm(".syntax unified\n\
+        ldr r2, _0807ADA0\n\
+        movs r3, #1\n\
+    _0807AD94:\n\
+        ldrh r1, [r2]\n\
+        adds r0, r3, #0\n\
+        ands r0, r1\n\
+        cmp r0, #0\n\
+        bne _0807AD94\n\
+        bx lr\n\
+        .align 2, 0\n\
+    _0807ADA0: .4byte 0x04000004\n\
+    .syntax divided");
+}
+#endif /* NONMATCHING */
