@@ -2,8 +2,14 @@
 
 #define DISPSTAT ((volatile uint16_t *)0x04000004)
 
+extern void gUnknown_03000718;
 extern void gUnknown_03006560;
 extern void gUnknown_03006570;
+extern void gUnknown_03006630;
+extern uint32_t gUnknown_03007FFC;
+
+extern void intr_main;
+extern void gUnknown_0827D308;
 
 extern void sub_80386B8();
 extern void sub_807AE00(uint32_t arg1, uint32_t arg2);
@@ -17,6 +23,7 @@ extern int32_t sub_807B0F8(void *ptr1);
 extern uint32_t sub_807B1B0(void *ptr1, uint32_t arg);
 extern uint32_t sub_807B1CC(void *ptr1, uint32_t arg1, uint32_t arg2);
 extern uint32_t sub_807B250(void *ptr1, uint32_t arg);
+extern void sub_807B27C(void *ptr1, void *ptr2, uint32_t arg);
 
 void sub_807AC88() {
     sub_807AF94(&gUnknown_03006560, &gUnknown_03006570, 16);
@@ -104,4 +111,11 @@ void sub_807ADA4() {
 
 void sub_807ADB0() {
     // empty
+}
+
+void sub_807ADB4() {
+    sub_807AE00(0, 0);
+    sub_807B27C(&gUnknown_0827D308, &gUnknown_03006630, 0x1E);
+    sub_807B27C(&intr_main, &gUnknown_03000718, 0x100);
+    gUnknown_03007FFC = (uint32_t)&gUnknown_03000718;
 }
