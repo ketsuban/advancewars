@@ -10,6 +10,7 @@ extern u32 gUnknown_03007FFC;
 
 extern void intr_main;
 extern void gUnknown_0827D308;
+extern i16 gUnknown_0827D344[];
 
 void sub_807AE00(i32 arg1, u32 arg2);
 
@@ -123,5 +124,34 @@ void sub_807AE00(i32 arg1, u32 arg2) {
         *REG_IME = 1;
     } else {
         *REG_IME = 0;
+    }
+}
+
+i16 sub_807AE74(i32 arg1) {
+    i32 temp1 = arg1;
+    i32 temp2;
+
+    while (temp1 < 0) {
+        temp1 += 360;
+    }
+
+    while (temp1 >= 360) {
+        temp1 -= 360;
+    }
+
+    temp2 = temp1;
+
+    if (temp1 >= 180) {
+        temp1 -= 180;
+    }
+
+    if (temp1 > 90) {
+        temp1 = 180 - temp1;
+    }
+
+    if (temp2 >= 180) {
+        return -gUnknown_0827D344[temp1];
+    } else {
+        return gUnknown_0827D344[temp1];
     }
 }

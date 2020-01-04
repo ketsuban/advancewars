@@ -1,60 +1,6 @@
     .syntax unified
     .include "asm/macros.inc"
 
-	THUMB_FUNC_START sub_807AE74
-sub_807AE74: @ 0x0807AE74
-	adds r1, r0, #0
-	ldr r3, _0807AEB4
-	cmp r1, #0
-	bge _0807AE86
-	movs r0, #0xb4
-	lsls r0, r0, #1
-_0807AE80:
-	adds r1, r1, r0
-	cmp r1, #0
-	blt _0807AE80
-_0807AE86:
-	ldr r0, _0807AEB8
-	cmp r1, r0
-	ble _0807AE94
-	ldr r2, _0807AEBC
-_0807AE8E:
-	adds r1, r1, r2
-	cmp r1, r0
-	bgt _0807AE8E
-_0807AE94:
-	adds r2, r1, #0
-	cmp r1, #0xb3
-	ble _0807AE9C
-	subs r1, #0xb4
-_0807AE9C:
-	cmp r1, #0x5a
-	ble _0807AEA4
-	movs r0, #0xb4
-	subs r1, r0, r1
-_0807AEA4:
-	cmp r2, #0xb3
-	bgt _0807AEC0
-	lsls r0, r1, #1
-	adds r0, r0, r3
-	movs r1, #0
-	ldrsh r0, [r0, r1]
-	b _0807AECC
-	.align 2, 0
-_0807AEB4: .4byte gUnknown_0827D344
-_0807AEB8: .4byte 0x00000167
-_0807AEBC: .4byte 0xFFFFFE98
-_0807AEC0:
-	lsls r0, r1, #1
-	adds r0, r0, r3
-	ldrh r0, [r0]
-	rsbs r0, r0, #0
-	lsls r0, r0, #0x10
-	asrs r0, r0, #0x10
-_0807AECC:
-	bx lr
-	.align 2, 0
-
 	THUMB_FUNC_START sub_807AED0
 sub_807AED0: @ 0x0807AED0
 	push {lr}
