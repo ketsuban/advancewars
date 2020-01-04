@@ -1,6 +1,16 @@
 #include "hardware.h"
 #include "types.h"
 
+struct sub_807AEE0_arg1 {
+    u8 _bytepad1;
+    u8 field1;
+    u8 _bytepad2;
+    u8 _bytepad3;
+    u32 _longpad1;
+    u32 _longpad2;
+    u32 *field2;
+};
+
 extern u32 gUnknown_03000710;
 extern void gUnknown_03000718;
 extern void gUnknown_03006560;
@@ -159,4 +169,18 @@ i16 sub_807AE74(i32 arg1) {
 
 i16 sub_807AED0(i32 arg1) {
     return sub_807AE74(arg1 + 90);
+}
+
+i32 sub_807AEE0(struct sub_807AEE0_arg1 *struc) {
+    u32 *ptr = struc->field2;
+    i32 i = 0;
+
+    while (i < struc->field1) {
+        if (*ptr == 0) {
+            return i;
+        }
+        ptr += 3;
+        i += 1;
+    }
+    return -1;
 }

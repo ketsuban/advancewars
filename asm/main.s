@@ -1,31 +1,6 @@
     .syntax unified
     .include "asm/macros.inc"
 
-	THUMB_FUNC_START sub_807AEE0
-sub_807AEE0: @ 0x0807AEE0
-	ldr r2, [r0, #0xc]
-	movs r1, #0
-	ldrb r0, [r0, #1]
-	cmp r1, r0
-	bge _0807AEFE
-	adds r3, r0, #0
-_0807AEEC:
-	ldr r0, [r2]
-	cmp r0, #0
-	bne _0807AEF6
-	adds r0, r1, #0
-	b _0807AF02
-_0807AEF6:
-	adds r2, #0xc
-	adds r1, #1
-	cmp r1, r3
-	blt _0807AEEC
-_0807AEFE:
-	movs r0, #1
-	rsbs r0, r0, #0
-_0807AF02:
-	bx lr
-
 	THUMB_FUNC_START sub_807AF04
 sub_807AF04: @ 0x0807AF04
 	push {r4, r5, r6, r7, lr}
