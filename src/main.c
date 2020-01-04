@@ -13,6 +13,7 @@ extern void gUnknown_0827D308;
 extern i16 gUnknown_0827D344[];
 
 void sub_807AE00(i32 arg1, u32 arg2);
+i16 sub_807AE74(i32 arg1);
 
 extern void sub_80386B8();
 extern void sub_807AF94(void *ptr1, void *ptr2, u32 arg);
@@ -154,4 +155,8 @@ i16 sub_807AE74(i32 arg1) {
     } else {
         return gUnknown_0827D344[temp1];
     }
+}
+
+i16 sub_807AED0(i32 arg1) {
+    return sub_807AE74(arg1 + 90);
 }
