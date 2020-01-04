@@ -18,7 +18,7 @@ install:
   - tar xJf devkitARM*.tar.xz
   - travis_retry wget http://downloads.devkitpro.org/packages/linux/gba-tools-1.2.0-1-any.pkg.tar.xz
   - tar --strip-components 2 -xJf gba-tools-*.tar.xz
-  - travis_retry git clone https://github.com/pret/agbcc.git
+  - travis_retry git clone https://github.com/ketsuban/agbcc.git
   - cd agbcc && ./build.sh && ./install.sh $TRAVIS_BUILD_DIR
   - popd
   - gcc ipspatch.c -o ipspatch

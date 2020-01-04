@@ -50,7 +50,7 @@ Nintendo's development kits included custom versions of GCC, and the clever peop
 1. Clone the `agbcc` repository and enter the directory.
 
     ```
-    git clone https://github.com/pret/agbcc
+    git clone https://github.com/ketsuban/agbcc
     cd agbcc
     ```
 
